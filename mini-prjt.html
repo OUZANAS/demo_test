@@ -1,0 +1,200 @@
+<!--mini-Projet-->
+<!--Question 1-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="second.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Mini-projet</title>
+    <style>
+         *{
+             margin: 0;
+             padding: 0;
+             box-sizing: border-box;
+             text-align: center;
+             font-family: Arial, Helvetica, sans-serif;
+         }
+         i.fa-bars{
+             font-size: 20px;
+             position: absolute;
+             bottom: 20px;
+             right: 20px;
+             background-color: grey;
+             padding: 5px 10px;
+             border-radius: 10px;
+             display: none;
+         }
+         #container{
+             width: 70%;
+             height: 100vh;
+             margin: 0 auto;
+         }
+         p{
+            font-size: 20px;
+         }
+         header{
+             height: 17.8%;
+             background-color: rgb(108, 181, 121);
+             margin-bottom: 5%;
+             line-height: 120px;
+             position: relative;
+             color: white ;
+         }
+        nav{
+           background-color: #504e4e;
+           line-height: 30px;
+           height: 7%;
+           z-index: 2;
+           color: white;
+           justify-content: center;
+        }
+        ul{ 
+           display: flex;
+           justify-content: space-around;
+           align-items: center;
+           list-style: none;
+        }
+        ul li{
+           font-size: 17px;
+        
+        }
+        .contenu{
+           display: flex;
+           margin: 5%;
+           width: 100%;
+           height: 36%;
+           line-height: 230px;
+           position: relative;
+           z-index: 1;
+        }
+        i.fa-plus{
+            font-size: 20px;
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            background-color:rgb(219, 211, 134);
+            padding: 5px 10px;
+            border-radius: 10px;
+            z-index: 1;
+            display: none;
+        }
+        main{
+            width: 50%;
+            margin-right: 5%;
+            background-color: rgb(103, 154, 237);
+            
+        }
+        aside{
+            width: 35%;
+            background-color: rgb(244, 213, 76);
+        }
+        footer{
+            width: 100%;
+            height: 17%;
+            margin-top: 5%;
+            background-color: rgb(235, 163, 55);
+            line-height: 120px;
+            color: white;
+        }
+        @media (max-width: 450px){
+            #container{
+                width: 100%;
+                height: 100vh;
+            }
+            i.fa-bars, i.fa-plus{
+                display: block;
+            }
+            
+            header, footer{
+                height: 25%;
+                margin: 0;
+            }
+            nav{
+                display: none;
+                position: absolute;
+                right: 0;
+            }
+            ul{
+                display: flex;
+                flex-direction: column;
+                line-height: 80px;
+            }
+            .contenu{
+                width: 90%;
+                height: 50%;
+                background-color: aqua;
+                display: relative;
+            }
+            main{
+                width: 100%;
+            }
+            aside{
+                position: absolute;
+                top: 0; 
+               right: 0px;
+                height: 100%;
+                width: 50%;
+                visibility: hidden;
+            } 
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <p>Entete</p>
+            <i class="fa-solid fa-bars" id="barre"></i>
+        </header>
+        <nav id="nav">
+            <ul>
+                <li>Accueil</li>
+                <li>Présentation</li>
+                <li>Prestations</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+        <div class="contenu">
+            <main class="margin">
+                <p>Contenu principal</p>
+                <i class="fa-solid fa-plus " id="plus"></i>
+            </main>
+            <aside id="aside">
+                <p>Contenu secondaire</p>
+            </aside>
+        </div>
+        <footer>
+           <p>Pied de page</p>
+        </footer>
+
+        <script>
+            const plusIcon = document.getElementById("plus");
+            const aside = document.getElementById("aside");
+            const menu = document.getElementById("barre");
+            const nav = document.getElementById("nav");
+            
+            plusIcon.addEventListener("mouseover", () => {
+               aside.style.visibility="visible";
+            });
+            
+            plusIcon.addEventListener("mouseout", () => {
+                aside.style.visibility="hidden";
+            });
+
+            menu.addEventListener("click", () => {
+                if (nav.style.width === "120px"){
+                    nav.style.display = "none";
+                }
+                else {
+                    nav.style.display = "block"
+                    nav.style.width = "120px"
+                    nav.style.height = "75%"
+                }
+            });
+    
+        </script>
+    </div>
+</body>
+</html>
